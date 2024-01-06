@@ -1,0 +1,115 @@
+<html>
+    <p>Tap here to enable Dark mode : </p>
+    <body class="body">
+        <div onclick="swt()" class="switch">
+            <div class="cyrcleOn"></div>
+            <div class="cyrcleOff"></div>
+        </div>
+
+    </body>
+</html>
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        transition: 1s ease-in-out;
+        margin: 50px;
+    }
+    p{
+        margin: 20px;
+        font-size: large;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      
+    }
+    .switch{
+        background: gray;
+        width: 100px;
+        height: 40px;
+        border: 1px solid gray;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+        position: absolute;
+        left: 400px;
+    }
+    .cyrcleOff{
+        background: rgb(255, 255, 255);
+        height:40px ;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        animation: move1 0.2s ease-in-out;
+    }
+    .cyrcleOn{
+        background: rgb(255, 255, 255);
+        height:40px ;
+        width: 40px;
+        border-radius: 50%;
+        display: none;
+        border: 1px solid white;
+        transform: translateX(140%);
+        animation: move2 0.2s ease-in-out;
+    }
+    @keyframes move2 {
+        from{
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(140%);
+        }
+    }
+
+    @keyframes move1 {
+        from{
+            transform: translateX(140%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+</style>
+
+<script>
+
+    let cyrcleOff = document.querySelector('.cyrcleOff');
+    let cyrcleOn = document.querySelector('.cyrcleOn');
+    let body = document.querySelector('.body');
+    let swtch = document.querySelector('.switch');
+    let P = document.querySelector('p');
+
+
+    function swt(){
+
+        if (cyrcleOff.style.display === 'none') {
+            cyrcleOff.style.display = 'flex';
+            cyrcleOn.style.display = 'none';
+            body.style.background = 'white';
+            swtch.style.background = 'gray';
+            P.style.color = 'black';
+            P.innerHTML = 'Tap here to enable Dark mode :';
+        }else {
+                cyrcleOn.style.display = 'flex';
+                cyrcleOff.style.display = 'none';
+                body.style.background = '#0a1e3d';
+                swtch.style.background = '#5c96f2';
+                P.innerHTML= 'Tap here to disable the Dark mode :'
+                P.style.color = 'white';
+            }
+
+     };
+     function activation() {
+        if(cyrcleOn.style.display === 'flex'){
+           
+        }
+        
+    }
+    activation();
+
+
+
+
+
+</script>
